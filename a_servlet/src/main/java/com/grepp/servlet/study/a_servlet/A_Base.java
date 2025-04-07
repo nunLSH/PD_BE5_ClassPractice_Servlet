@@ -32,9 +32,6 @@ public class A_Base extends HttpServlet {
     private void testPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter("name");
         System.out.println(name);
-
-        resp.setHeader("content-type", "text/html; charset=utf-8");
-
         PrintWriter pw = resp.getWriter();
         pw.write("<h1>Hello Servlet</h1>");
         pw.write(name + " : <h2>post 요청</h2>");
@@ -43,10 +40,6 @@ public class A_Base extends HttpServlet {
     private static void testGet(HttpServletRequest req, HttpServletResponse resp)
         throws IOException {
         String name = req.getParameter("name");
-        System.out.println(name);
-
-        resp.setHeader("content-type", "text/html; charset=utf-8");
-
         PrintWriter pw = resp.getWriter();
         pw.write("<h1>Hello Servlet</h1>");
         pw.write(name + " : <h2>get 요청</h2>");

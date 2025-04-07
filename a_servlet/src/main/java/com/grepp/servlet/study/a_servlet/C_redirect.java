@@ -34,7 +34,7 @@ public class C_redirect extends HttpServlet {
         System.out.println("password : " + req.getParameter("password"));
         System.out.println("phone : " + req.getParameter("phone"));
 
-        resp.sendRedirect("/");
+        resp.sendRedirect("/?attr=signup");
     }
 
     private void page(HttpServletRequest req, HttpServletResponse resp)

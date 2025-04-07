@@ -35,18 +35,23 @@
     </nav>
 </header>
 
-<div class="container" style="min-height: 85vh">
+<main class="container" >
+
+    <% if(request.getParameter("attr") != null && request.getParameter("attr").equals("signup")) {%>
+    <div class="card-panel deep-purple lighten-3 white-text">회원가입을 환영합니다!!</div>
+    <% } %>
+
     <ul class="collection with-header">
         <li class="collection-header"><h4>Welcome Servlet</h4></li>
 
         <li class="collection-item">
-            <div>GET<a href="/request/get?name=hmd" class="secondary-content"><i
+            <div>GET<a href="/request/get?name=lsh" class="secondary-content"><i
                     class="material-icons">send</i></a></div>
         </li>
         <li class="collection-item">
             <div>POST
                 <form action="/request/post" method="post" class="secondary-content">
-                    <input type="hidden" name="name" value="hmd" >
+                    <input type="hidden" name="name" value="lsh" >
                     <button id="postSubmit" style="display:none"></button>
                 </form>
                 <label class="secondary-content" for="postSubmit"><i
@@ -82,7 +87,7 @@
             </div>
         </li>
     </ul>
-</div>
+</main>
 <footer class="page-footer">
     <div class="container">
         <div class="row">

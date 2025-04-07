@@ -7,18 +7,6 @@
     <script
             src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-      body {
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-      }
-
-      main {
-        flex: 1 0 auto;
-      }
-
-    </style>
 
 </head>
 <body>
@@ -35,9 +23,24 @@
     </nav>
 </header>
 
-<main class="container" >
-    <h4>Listener</h4>
-    <h5><%= application.getAttribute("userCnt") %> 명 접속 중입니다.</h5>
+<main class="container">
+    <h4>forward</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>subject</th>
+            <th>score</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><%= request.getParameter("name")%></td>
+            <td><%= request.getParameter("subject")%></td>
+            <td><%= request.getAttribute("score")%></td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 
 <footer class="page-footer">
@@ -66,16 +69,6 @@
         </div>
     </div>
 </footer>
-<script>
-
-  const allCookies = document.cookie;
-  document.cookie = 'js-cookie=add from javascript;';
-  document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('select');
-    const instances = M.FormSelect.init(elems);
-  });
-
-</script>
 
 </body>
 </html>

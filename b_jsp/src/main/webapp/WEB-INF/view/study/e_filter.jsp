@@ -36,8 +36,7 @@
 </header>
 
 <main class="container" >
-    <h4>Listener</h4>
-    <h5><%= application.getAttribute("userCnt") %> 명 접속 중입니다.</h5>
+    <h4>ViewResolver Test</h4>
 </main>
 
 <footer class="page-footer">

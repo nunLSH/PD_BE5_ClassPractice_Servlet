@@ -36,8 +36,21 @@
 </header>
 
 <main class="container" >
-    <h4>Listener</h4>
-    <h5><%= application.getAttribute("userCnt") %> 명 접속 중입니다.</h5>
+    <h4>D_cookie</h4>
+    <form action="/cookie/lang">
+        <div class="input-field col s12">
+            <select name="search">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="java">java</option>
+                <option value="html">html</option>
+                <option value="css">css</option>
+                <option value="js">js</option>
+            </select>
+            <label>Materialize Select</label>
+        </div>
+        <button>전송</button>
+    </form>
+
 </main>
 
 <footer class="page-footer">

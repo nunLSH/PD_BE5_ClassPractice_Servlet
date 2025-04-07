@@ -1,3 +1,5 @@
+<%@ page import="com.grepp.servlet.app.auth.Principal" %>
+<%@ page import="com.grepp.servlet.app.auth.Role" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
@@ -27,19 +29,46 @@
     <nav class="navbar white">
         <div class="nav-wrapper ">
             <a href="/" class="brand-logo grey-text">Grepp</a>
+            <% Principal principal = (Principal) session.getAttribute("principal");
+                if(principal == null || principal.role().contains(Role.ROLE_ANONYMOUS)){ %>
             <ul id="nav-mobile" class="right hide-on-med-and-down grey-text">
                 <li><a href="/member/login" class="grey-text">sign in</a></li>
-                <li><a href="badges.html" class="grey-text">sign up</a></li>
+                <li><a href="/member/signup" class="grey-text">sign up</a></li>
             </ul>
+            <% } else { %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down grey-text">
+                <li><a href="/member/logout" class="grey-text">logout</a></li>
+            </ul>
+            <% } %>
         </div>
     </nav>
 </header>
 
 <main class="container" >
-    <h4>Listener</h4>
-    <h5><%= application.getAttribute("userCnt") %> 명 접속 중입니다.</h5>
-</main>
 
+    <% if( request.getParameter("attr") != null && request.getParameter("attr").equals("signup")) { %>
+    <div class="card-panel deep-purple lighten-3 white-text">회원가입을 환영합니다!!</div>
+    <% } %>
+
+    <% if( request.getParameter("error") != null) { %>
+    <div class="card-panel red darken-3 lighten-3 white-text"><%= request.getParameter("error")%></div>
+    <% } %>
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>Welcome JSP</h4></li>
+        <li class="collection-item">
+            <div>el-base<a href="/el/base" class="secondary-content"><i class="material-icons">send</i></a>
+            </div>
+        </li>
+        <li class="collection-item">
+            <div>el-exam<a href="/el/exam" class="secondary-content"><i class="material-icons">send</i></a>
+            </div>
+        </li>
+        <li class="collection-item">
+            <div>jstl-base<a href="/jstl/page" class="secondary-content"><i class="material-icons">send</i></a>
+            </div>
+        </li>
+    </ul>
+</main>
 <footer class="page-footer">
     <div class="container">
         <div class="row">
@@ -66,16 +95,6 @@
         </div>
     </div>
 </footer>
-<script>
-
-  const allCookies = document.cookie;
-  document.cookie = 'js-cookie=add from javascript;';
-  document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('select');
-    const instances = M.FormSelect.init(elems);
-  });
-
-</script>
 
 </body>
 </html>

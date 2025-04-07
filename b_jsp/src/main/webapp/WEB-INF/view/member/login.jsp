@@ -36,8 +36,22 @@
 </header>
 
 <main class="container" >
-    <h4>Listener</h4>
-    <h5><%= application.getAttribute("userCnt") %> 명 접속 중입니다.</h5>
+    <h4>Sign In</h4>
+    <form action="/member/login" method="post">
+        <div class="row">
+            <div class="input-field col s7 ">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="userId" name="userId" type="text" placeholder="user-id"
+                       class="validate">
+            </div>
+            <div class="input-field col s7 ">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="password" name="password" type="password" placeholder="password"
+                       class="validate">
+            </div>
+        </div>
+        <button>send</button>
+    </form>
 </main>
 
 <footer class="page-footer">

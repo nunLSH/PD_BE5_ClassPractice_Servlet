@@ -36,8 +36,24 @@
 </header>
 
 <main class="container" >
-    <h4>Listener</h4>
-    <h5><%= application.getAttribute("userCnt") %> 명 접속 중입니다.</h5>
+    <h4>D_cookie_result</h4>
+    <div class="row">
+        <div class="col s3 ">
+            <div class="card">
+                <div class="card-image">
+                    <img src="<%= request.getAttribute("filePath")%>">
+                    <span class="card-title"><%= request.getAttribute("search")%></span>
+                </div>
+                <div class="card-content">
+                    <p><%= request.getAttribute("desc")%></p>
+                </div>
+                <div class="card-action">
+                    <a href="/cookie/lang?search=<%=request.getAttribute("lastSearch") %>">
+                        <%= request.getAttribute("lastSearch") %></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <footer class="page-footer">
@@ -67,9 +83,6 @@
     </div>
 </footer>
 <script>
-
-  const allCookies = document.cookie;
-  document.cookie = 'js-cookie=add from javascript;';
   document.addEventListener('DOMContentLoaded', function() {
     const elems = document.querySelectorAll('select');
     const instances = M.FormSelect.init(elems);

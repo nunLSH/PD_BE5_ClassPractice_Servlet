@@ -7,18 +7,6 @@
     <script
             src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-      body {
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-      }
-
-      main {
-        flex: 1 0 auto;
-      }
-
-    </style>
 
 </head>
 <body>
@@ -35,9 +23,33 @@
     </nav>
 </header>
 
-<main class="container" >
-    <h4>Listener</h4>
-    <h5><%= application.getAttribute("userCnt") %> 명 접속 중입니다.</h5>
+<main class="container">
+    <h4>C_redirect</h4>
+    <div class="row">
+        <form class="col s12" action="/redirect/signup" method="post">
+            <div class="row">
+                <div class="input-field col s7 ">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="email" name="email" type="email" placeholder="email"
+                           class="validate">
+                </div>
+                <div class="input-field col s7 ">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="password" name="password" type="password" placeholder="password"
+                           class="validate">
+                </div>
+                <div class="input-field col s7 ">
+                    <i class="material-icons prefix">phone</i>
+                    <input id="phone" name="phone" type="tel" placeholder="tel" class="validate">
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light offset-s1" type="submit" name="action">
+                Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+
 </main>
 
 <footer class="page-footer">
@@ -45,7 +57,8 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize
+                    your
                     footer content.</p>
             </div>
             <div class="col l4 offset-l2 s12">
@@ -66,16 +79,6 @@
         </div>
     </div>
 </footer>
-<script>
-
-  const allCookies = document.cookie;
-  document.cookie = 'js-cookie=add from javascript;';
-  document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('select');
-    const instances = M.FormSelect.init(elems);
-  });
-
-</script>
 
 </body>
 </html>

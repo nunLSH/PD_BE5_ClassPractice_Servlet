@@ -1,6 +1,6 @@
 package com.grepp.servlet.study.a_servlet;
 
-import com.grepp.servlet.infra.error.CommonException;
+import com.grepp.servlet.infra.exception.CommonException;
 import com.grepp.servlet.study.b_filter.wrapper.PathWrapper;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

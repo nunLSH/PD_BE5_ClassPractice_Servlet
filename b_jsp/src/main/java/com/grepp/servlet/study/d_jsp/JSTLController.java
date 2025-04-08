@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @WebServlet("/jstl/page")
 public class JSTLController extends HttpServlet {
@@ -15,6 +16,7 @@ public class JSTLController extends HttpServlet {
         throws ServletException, IOException {
         String xss = "<script>alert('xss attack!');</script>";
         req.setAttribute("xss", xss);
+        req.setAttribute("now", LocalDateTime.now());
         req.getRequestDispatcher("/WEB-INF/view/jstl.jsp")
             .forward(req, resp);
     }

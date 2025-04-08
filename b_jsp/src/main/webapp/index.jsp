@@ -7,6 +7,7 @@
 </head>
 <body>
 <%@include file="/WEB-INF/view/include/header.jsp" %>
+<%@include file="/WEB-INF/view/include/sidenav.jsp" %>
 <main class="container">
     <!--500 에러 확인을 위한 코드 -->
     <%--    <% int i = 100 / 0 %>--%>
